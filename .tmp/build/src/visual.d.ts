@@ -1,0 +1,33 @@
+import powerbi from "powerbi-visuals-api";
+import "./../style/visual.less";
+import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
+import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
+import IVisual = powerbi.extensibility.visual.IVisual;
+export declare class Visual implements IVisual {
+    private host;
+    private events;
+    private selectionManager;
+    private formattingSettingsService;
+    private formattingSettings;
+    private container;
+    private svg;
+    private mapGroup;
+    private pathsGroup;
+    private labelsGroup;
+    private legendContainer;
+    private legendTitle;
+    private legendBar;
+    private legendMin;
+    private legendMax;
+    private geoFeatures;
+    private cachedSelectionIds;
+    constructor(options: VisualConstructorOptions);
+    update(options: VisualUpdateOptions): void;
+    private renderLabels;
+    private renderLegend;
+    private applySelectionStyles;
+    private getSelectionIdForProvince;
+    private extractData;
+    private formatNumber;
+    getFormattingModel(): powerbi.visuals.FormattingModel;
+}

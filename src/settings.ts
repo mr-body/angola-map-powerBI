@@ -1,29 +1,3 @@
-/*
- *  Power BI Visualizations
- *
- *  Copyright (c) Microsoft Corporation
- *  All rights reserved.
- *  MIT License
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the ""Software""), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
- */
-
 "use strict";
 
 import { formattingSettings } from "powerbi-visuals-utils-formattingmodel";
@@ -32,52 +6,95 @@ import FormattingSettingsCard = formattingSettings.SimpleCard;
 import FormattingSettingsSlice = formattingSettings.Slice;
 import FormattingSettingsModel = formattingSettings.Model;
 
-/**
- * Data Point Formatting Card
- */
-class DataPointCardSettings extends FormattingSettingsCard {
-    defaultColor = new formattingSettings.ColorPicker({
-        name: "defaultColor",
-        displayName: "Default color",
-        value: { value: "" }
+export class MapSettingsCard extends FormattingSettingsCard {
+    minColor = new formattingSettings.ColorPicker({
+        name: "minColor",
+        displayName: "Cor Mínima",
+        description: "Cor para os menores valores da métrica",
+        value: { value: "#93C5FD" }
     });
 
-    showAllDataPoints = new formattingSettings.ToggleSwitch({
-        name: "showAllDataPoints",
-        displayName: "Show all",
+    maxColor = new formattingSettings.ColorPicker({
+        name: "maxColor",
+        displayName: "Cor Máxima",
+        description: "Cor para os maiores valores da métrica",
+        value: { value: "#1E3A8A" }
+    });
+
+    emptyColor = new formattingSettings.ColorPicker({
+        name: "emptyColor",
+        displayName: "Cor Sem Dados",
+        description: "Cor para províncias sem registros",
+        value: { value: "#E2E8F0" }
+    });
+
+    borderColor = new formattingSettings.ColorPicker({
+        name: "borderColor",
+        displayName: "Cor da Borda",
+        description: "Cor dos limites provinciais",
+        value: { value: "#FFFFFF" }
+    });
+
+    borderWidth = new formattingSettings.NumUpDown({
+        name: "borderWidth",
+        displayName: "Espessura da Borda",
+        description: "Espessura das linhas das províncias",
+        value: 1.5
+    });
+
+    name: string = "mapSettings";
+    displayName: string = "Cores do Mapa";
+    slices: Array<FormattingSettingsSlice> = [
+        this.minColor,
+        this.maxColor,
+        this.emptyColor,
+        this.borderColor,
+        this.borderWidth
+    ];
+}
+
+export class DataLabelsCard extends FormattingSettingsCard {
+    show = new formattingSettings.ToggleSwitch({
+        name: "show",
+        displayName: "Exibir Rótulos",
+        description: "Exibir nomes das províncias sobre o mapa",
         value: true
     });
 
-    fill = new formattingSettings.ColorPicker({
-        name: "fill",
-        displayName: "Fill",
-        value: { value: "" }
+    showValues = new formattingSettings.ToggleSwitch({
+        name: "showValues",
+        displayName: "Exibir Valores",
+        description: "Exibir o valor numérico abaixo do nome",
+        value: false
     });
 
-    fillRule = new formattingSettings.ColorPicker({
-        name: "fillRule",
-        displayName: "Color saturation",
-        value: { value: "" }
+    color = new formattingSettings.ColorPicker({
+        name: "color",
+        displayName: "Cor do Texto",
+        description: "Cor dos rótulos de dados",
+        value: { value: "#1E293B" }
     });
 
     fontSize = new formattingSettings.NumUpDown({
         name: "fontSize",
-        displayName: "Text Size",
-        value: 12
+        displayName: "Tamanho da Fonte",
+        description: "Tamanho da fonte dos rótulos",
+        value: 9
     });
 
-    name: string = "dataPoint";
-    displayName: string = "Data colors";
-    slices: Array<FormattingSettingsSlice> = [this.defaultColor, this.showAllDataPoints, this.fill, this.fillRule, this.fontSize];
+    name: string = "dataLabels";
+    displayName: string = "Rótulos de Dados";
+    slices: Array<FormattingSettingsSlice> = [
+        this.show,
+        this.showValues,
+        this.color,
+        this.fontSize
+    ];
 }
 
-/**
-* visual settings model class
-*
-*/
 export class VisualFormattingSettingsModel extends FormattingSettingsModel {
-    // Create formatting settings model formatting cards
-    dataPointCard = new DataPointCardSettings();
+    mapSettings = new MapSettingsCard();
+    dataLabels = new DataLabelsCard();
 
-    cards = [this.dataPointCard];
+    cards = [this.mapSettings, this.dataLabels];
 }

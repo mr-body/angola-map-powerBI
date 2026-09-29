@@ -16,6 +16,8 @@
   "dependencies": {
     "@types/d3": "7.4.3",
     "d3": "7.9.0",
+    "d3-geo": "^3.1.1",
+    "d3-selection": "^3.0.0",
     "powerbi-visuals-api": "5.11.1",
     "powerbi-visuals-utils-formattingmodel": "6.0.4",
     "topojson-client": "^3.1.0"

@@ -1,1 +1,26 @@
-{"visual":{"name":"angolamap","displayName":"angolamap","guid":"angolamap8FBF3A0E9300477B98A063EB2B11839F","visualClassName":"Visual","version":"1.0.0.0","description":"","supportUrl":"","gitHubUrl":""},"apiVersion":"5.11.1","author":{"name":"","email":""},"assets":{"icon":"assets/icon.png"},"externalJS":null,"style":"style/visual.less","capabilities":"capabilities.json","dependencies":null,"stringResources":[],"version":"1.0.0.0"}
+{
+    "visual": {
+        "name": "angolamap",
+        "displayName": "angolamap",
+        "guid": "angolamap",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Interactive map of Angola using custom geographic data.",
+        "supportUrl": "https://github.com/mr-body/angola-map-powerBI/issues",
+        "gitHubUrl": "https://github.com/mr-body/angola-map-powerBI"
+    },
+    "apiVersion": "5.11.1",
+    "author": {
+        "name": "Walter Alexandre Santana",
+        "email": "walteralexandresantana@gmail.com"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": [],
+    "version": "1.0.0.0"
+}

@@ -1,0 +1,116 @@
+.angola-map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", Roboto, "Helvetica Neue", sans-serif;
+}
+.angola-map-container .angola-map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.angola-map-container .province-path {
+  cursor: pointer;
+  transition: fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke-width 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease;
+}
+.angola-map-container .province-path:hover {
+  filter: brightness(0.9) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+  stroke-width: 2.2px !important;
+}
+.angola-map-container .province-path.selected {
+  stroke: #F59E0B !important;
+  stroke-width: 2.8px !important;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+}
+.angola-map-container .province-path.dimmed {
+  opacity: 0.32;
+}
+.angola-map-container .province-label-group {
+  pointer-events: none;
+}
+.angola-map-container .province-label {
+  font-family: inherit;
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  paint-order: stroke fill;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  transition: opacity 0.25s ease;
+}
+.angola-map-container .province-label.dimmed {
+  opacity: 0.25;
+}
+.angola-map-container .province-value-label {
+  font-family: inherit;
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-weight: 500;
+  paint-order: stroke fill;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+  fill: #475569;
+  transition: opacity 0.25s ease;
+}
+.angola-map-container .province-value-label.dimmed {
+  opacity: 0.25;
+}
+.angola-map-container .map-legend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+.angola-map-container .map-legend .legend-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.angola-map-container .map-legend .legend-bar {
+  width: 110px;
+  height: 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.angola-map-container .map-legend .legend-values {
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #64748B;
+  font-weight: 500;
+}
+.angola-map-container .empty-state {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #94A3B8;
+  font-size: 13px;
+  text-align: center;
+  padding: 16px;
+}
+

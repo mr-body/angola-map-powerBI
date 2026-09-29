@@ -1,20 +1,27 @@
 {
     "dataRoles": [
         {
-            "displayName": "Category Data",
+            "displayName": "Província (ID ou Nome)",
             "name": "category",
             "kind": "Grouping"
         },
         {
-            "displayName": "Measure Data",
+            "displayName": "Valor (Métrica)",
             "name": "measure",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Dicas de Ferramenta (Tooltips)",
+            "name": "tooltips",
             "kind": "Measure"
         }
     ],
     "objects": {
-        "dataPoint": {
+        "mapSettings": {
+            "displayName": "Cores do Mapa",
             "properties": {
-                "defaultColor": {
+                "minColor": {
+                    "displayName": "Cor Mínima",
                     "type": {
                         "fill": {
                             "solid": {
@@ -23,12 +30,61 @@
                         }
                     }
                 },
-                "showAllDataPoints": {
+                "maxColor": {
+                    "displayName": "Cor Máxima",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "emptyColor": {
+                    "displayName": "Cor Sem Dados",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "borderColor": {
+                    "displayName": "Cor da Borda",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "borderWidth": {
+                    "displayName": "Espessura da Borda",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "dataLabels": {
+            "displayName": "Rótulos de Dados",
+            "properties": {
+                "show": {
+                    "displayName": "Exibir Rótulos",
                     "type": {
                         "bool": true
                     }
                 },
-                "fill": {
+                "showValues": {
+                    "displayName": "Exibir Valores",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "color": {
+                    "displayName": "Cor do Texto",
                     "type": {
                         "fill": {
                             "solid": {
@@ -37,12 +93,8 @@
                         }
                     }
                 },
-                "fillRule": {
-                    "type": {
-                        "fill": {}
-                    }
-                },
-                 "fontSize": {
+                "fontSize": {
+                    "displayName": "Tamanho da Fonte",
                     "type": {
                         "formatting": {
                             "fontSize": true
@@ -69,11 +121,17 @@
                             "bind": {
                                 "to": "measure"
                             }
+                        },
+                        {
+                            "bind": {
+                                "to": "tooltips"
+                            }
                         }
                     ]
                 }
             }
         }
     ],
+    "supportsHighlight": true,
     "privileges": []
 }
