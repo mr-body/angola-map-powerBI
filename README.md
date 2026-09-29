@@ -1,8 +1,12 @@
 # Angola Map para Power BI
 
-Visual personalizado para o **Microsoft Power BI** que permite apresentar dados geográficos de Angola num mapa interativo. O projecto utiliza dados geográficos nos formatos **GeoJSON**, **TopoJSON** e **SVG**, juntamente com TypeScript, D3.js e a API de visuais do Power BI.
+Visual personalizado para o **Microsoft Power BI** que permite apresentar dados geográficos de Angola num mapa interativo. O projecto utiliza dados geográficos nos formatos **GeoJSON**, **TopoJSON** e **SVG**, juntamente com **TypeScript**, **D3.js** e a API de visuais do Power BI.
 
 ![Ícone do Angola Map](assets/icon.png)
+
+## Exemplo
+
+![Exemplo do Angola Map](.github/assets/image.png)
 
 ## Funcionalidades
 
